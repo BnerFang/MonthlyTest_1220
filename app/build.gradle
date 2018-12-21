@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.baway.monthlytest_1220"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//自动更改版本
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'//根据你的底下appcompat-v7版本
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+//Gson依赖
+    implementation 'com.google.code.gson:gson:2.2.2'
+//picasso依赖
+    implementation 'com.squareup.picasso:picasso:2.3.2'
+//glide图片加载库
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+//guava依赖
+    implementation 'com.google.guava:guava:16.0.1'
+//okhttp3依赖
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+//拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+//butterknife
+    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+//底部导航栏
+    implementation 'com.hjm:BottomTabBar:1.1.1'
+//image-loader依赖
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+//tablayout依赖
+    implementation 'com.android.support:design:28.+'
+//圆角依赖
+    implementation 'de.hdodenhof:circleimageview:2.0.0'
+//Zxing二维码依赖
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.3.4'
+//banner轮播
+    implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+    implementation 'com.recker.flybanner:flybanner:1.3'
+//Recyclerview依赖
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
+    //EventBus 依赖
+    implementation 'org.greenrobot:eventbus:3.0.0'
+}

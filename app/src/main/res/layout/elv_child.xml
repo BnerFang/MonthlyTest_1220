@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="50dp">
+
+    <CheckBox
+        android:id="@+id/cbChild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:textSize="20sp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvSubhead"
+            android:textSize="14sp"
+            android:lines="2"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:textColor="#F00"
+                android:textSize="16sp"
+                android:lines="1"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ivDel"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/sub" />
+
+            <TextView
+                android:id="@+id/tvNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:text="1"/>
+
+            <ImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/jia" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btDel"
+        android:layout_width="30dp"
+        android:layout_height="60dp"
+        android:background="@drawable/del" />
+
+</LinearLayout>
